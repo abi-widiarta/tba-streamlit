@@ -145,12 +145,12 @@ if st.button('Analyze'):
 
     if valid:
         if statement == statement1 or statement == statement2:
-            st.write("\nGrammar: ", end='')
+            st.write("Grammar: ", end='')
             for i in range(len(statement)):
                 st.write(statement[i], end=' ')
-            st.write("\nSusunan token sudah sesuai grammar")
+            st.write("Susunan token sudah sesuai grammar")
 
-            st.write("\nParser")
+            st.write("Parser")
             for i in range(len(head)):
                 st.write(head[i])
         else:
@@ -161,18 +161,18 @@ if st.button('Analyze'):
             stop = False
             while i <= len(statement) and stop == False:
                 if i == 0 and statement[0] != "while":
-                    st.write("\nError, Expected while at start of statement")
+                    st.write("Error, Expected while at start of statement")
                     stop = True
                 elif (i == 8 and statement[i] != statement1[i]) and (i == 8 and statement[i] != statement2[i]):
-                    st.write("\nError, Expected + or - after <var>")
+                    st.write("Error, Expected + or - after <var>")
                     stop = True
                 elif (i == 9 and statement[i] != statement1[i]) and statement[i-1] == '+':
-                    st.write("\nError, Expected + after +")
+                    st.write("Error, Expected + after +")
                     stop = True
                 elif (i == 9 and statement[i] != statement2[i]) and statement[i-1] == '-':
-                    st.write("\nError, Expected - after -")
+                    st.write("Error, Expected - after -")
                     stop = True
                 elif (statement[i] != statement1[i]) and (i != 8 and i != 9):
-                    st.write("\nError, Expected", statement1[i], "after", statement[i-1])
+                    st.write("Error, Expected", statement1[i], "after", statement[i-1])
                     stop = True
                 i += 1
