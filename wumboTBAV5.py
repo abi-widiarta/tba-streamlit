@@ -24,6 +24,8 @@ head = []
 state = []
 statement = []
 
+st.write("Program lexical analyzer/parser untuk sintaks perulangan \"while-do\" dalam bahasa c++")
+
 text = st.text_area("Input String : ", placeholder="Input String")
 text = list(text)
 i = 0
@@ -279,7 +281,10 @@ if st.button('Analyze'):
             if len(statement) == 8 or len(statement) == 9:
                 st.write("Error, Expected + or - after", text[i-1])
             else:
-                st.write("Error, Expected", statement1[len(statement)], "after", text[i-1])
+                if(text[i-1] == ' '):
+                    st.write("Error, Expected", statement1[len(statement)], "after", "space")
+                else:
+                    st.write("Error, Expected", statement1[len(statement)], "after", text[i-1])
 
         else:
             st.write(pd.DataFrame({
