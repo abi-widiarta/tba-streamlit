@@ -1,7 +1,3 @@
-# Cara Menjalankan Program :
-# Program dapat digunakan dengan mengakses alamat tautan 
-
-
 import streamlit as st
 import pandas as pd
 
