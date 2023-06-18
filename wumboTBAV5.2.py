@@ -268,11 +268,10 @@ if st.button('Analyze'):
 
     if valid:
         if len(statement) < len(statement1):
-            for j in range(len(text)):
-                st.write(text[j], end="")
-            st.write()
-            for j in range(i-1):
-                st.write(" ", end="")
+            st.write(pd.DataFrame({
+                'State': state,
+                'Parse' : head
+            }))
             st.write("^")
             if len(statement) == 8 or len(statement) == 9:
                 st.write("Error, Expected + or - after", text[i-1])
@@ -280,9 +279,10 @@ if st.button('Analyze'):
                 st.write("Error, Expected", statement1[len(statement)], "after", text[i-1])
 
         else:
-            st.write("State\thead")
-            for i in range(len(text)):
-                st.write(state[i], "\t", head[i])
+            st.write(pd.DataFrame({
+                'State': state,
+                'Parse' : head
+            }))
     else:
         for j in range(len(text)):
             st.write(text[j], end="")
