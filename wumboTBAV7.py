@@ -161,7 +161,7 @@ if st.button('Analyze'):
             susunanToken = ""
             st.write("Susunan token: ")
             for i in range(len(statement)):
-                susunanToken+= st.write(statement[i])
+                susunanToken+= statement[i]
             st.write(susunanToken)
             i = 0
             stop = False
