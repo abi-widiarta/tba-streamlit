@@ -9,7 +9,7 @@ st.divider()
 statusValid = '<p style="color:Green; font-size: 20px;">Kode yang anda input benar!</p>'
 statusInvalid = '<p style="color:Red; font-size: 20px;">Kode yang anda input salah!</p>'
 
-st.markdown("<p style='text-align: center;'>Program lexical analyzer/parser untuk sintaks perulangan \"while-do\" dalam bahasa c++</p>", unsafe_allow_html=True)
+st.markdown("<h5 style='text-align: center;'>Program lexical analyzer/parser untuk sintaks perulangan \"while-do\" dalam bahasa c++</h5>", unsafe_allow_html=True)
 
 st.write('Copy this code: ')
 code = '''while (x<y) {
