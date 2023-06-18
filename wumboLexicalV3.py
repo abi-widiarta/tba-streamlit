@@ -1,7 +1,8 @@
 import streamlit as st
 import pandas as pd
 
-st.columns(3)[1].header("Lexical Analyzer/Parser")
+st.columns(3)[1].header("Lexical Analyzer")
+st.columns(3)[1].subheader("Tugas Besar TBA IF-45-09")
 
 kata = st.text_area("Input String : ", placeholder="Input String")
 kata = list(kata)
