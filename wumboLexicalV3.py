@@ -1,9 +1,8 @@
 import streamlit as st
 import pandas as pd
 
-st.markdown("<h1 style='text-align: center; color: red;'>Lexical Analyzer</h1>", unsafe_allow_html=True)
-st.columns(3)[1].header("Lexical Analyzer")
-st.columns(3)[1].subheader("Tugas Besar TBA IF-45-09")
+st.markdown("<h1 style='text-align: center;'>Lexical Analyzer</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center; font-size: 18px'>Tugas Besar TBA IF-45-09</h1>", unsafe_allow_html=True)
 
 kata = st.text_area("Input String : ", placeholder="Input String")
 kata = list(kata)
