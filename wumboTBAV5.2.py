@@ -81,6 +81,10 @@ if st.button('Analyze'):
                 head.append("space")
                 state.append(currState)
                 i += 1
+            elif text[i] == '\n':
+                head.append("space")
+                state.append(currState)
+                i += 1
             else:
                 valid = False
         elif currState == 'q6':
@@ -97,6 +101,10 @@ if st.button('Analyze'):
                 i += 1
                 statement.append("<var>")
             elif text[i] == ' ':
+                head.append("space")
+                state.append(currState)
+                i += 1
+            elif text[i] == '\n':
                 head.append("space")
                 state.append(currState)
                 i += 1
@@ -119,6 +127,10 @@ if st.button('Analyze'):
                 head.append("space")
                 state.append(currState)
                 i += 1
+            elif text[i] == '\n':
+                head.append("space")
+                state.append(currState)
+                i += 1
             else:
                 valid = False
         elif currState == 'q8':
@@ -138,6 +150,10 @@ if st.button('Analyze'):
                 head.append("space")
                 state.append(currState)
                 i += 1
+            elif text[i] == '\n':
+                head.append("space")
+                state.append(currState)
+                i += 1
             else:
                 valid = False
         elif currState == 'q9':
@@ -151,6 +167,10 @@ if st.button('Analyze'):
                 head.append("space")
                 state.append(currState)
                 i += 1
+            elif text[i] == '\n':
+                head.append("space")
+                state.append(currState)
+                i += 1
             else:
                 valid = False
         elif currState == 'q10':
@@ -161,6 +181,10 @@ if st.button('Analyze'):
                 i += 1
                 statement.append("{")
             elif text[i] == ' ':
+                head.append("space")
+                state.append(currState)
+                i += 1
+            elif text[i] == '\n':
                 head.append("space")
                 state.append(currState)
                 i += 1
@@ -203,6 +227,10 @@ if st.button('Analyze'):
                 i += 1
                 statement.append("+")
             elif text[i] == ' ':
+                head.append("space")
+                state.append(currState)
+                i += 1
+            elif text[i] == '\n':
                 head.append("space")
                 state.append(currState)
                 i += 1
@@ -263,6 +291,10 @@ if st.button('Analyze'):
                 valid = False
         elif currState == 'q18':
             if text[i] == ' ':
+                head.append("space")
+                state.append(currState)
+                i += 1
+            elif text[i] == '\n':
                 head.append("space")
                 state.append(currState)
                 i += 1
