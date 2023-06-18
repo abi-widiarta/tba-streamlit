@@ -183,6 +183,10 @@ if st.button('Analyze'):
                 head.append("space")
                 state.append(currState)
                 i += 1
+            elif text[i] == '\n':
+                head.append("space")
+                state.append(currState)
+                i += 1
             else:
                 valid = False
         elif currState == 'q12':
