@@ -157,8 +157,12 @@ if st.button('Analyze'):
             st.write("\nSusunan token sudah sesuai grammar")
 
             st.write("\nParser")
+            parser = []
             for i in range(len(head)):
-                st.write(head[i])
+                parser.append(head[i])
+            st.write(pd.DataFrame({
+                'Parser': parser,
+            }))
         else:
             susunanToken = "Susunan token: "
             for i in range(len(statement)):
