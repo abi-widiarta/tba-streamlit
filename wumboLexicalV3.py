@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 
+st.markdown("<h1 style='text-align: center; color: red;'>Lexical Analyzer</h1>", unsafe_allow_html=True)
 st.columns(3)[1].header("Lexical Analyzer")
 st.columns(3)[1].subheader("Tugas Besar TBA IF-45-09")
 
