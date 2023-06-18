@@ -1,3 +1,8 @@
+# baris = 3
+# text = ""
+# for i in range(baris):
+#     text+=input()
+
 import streamlit as st
 import pandas as pd
 
@@ -13,12 +18,14 @@ code = '''while (x<y) {
     '''
 st.code(code, language='cpp')
 
-text = st.text_area("Input String : ", placeholder="Input String")
-text = list(text)
-
+statement1 = ['while', '(', '<var>', '<operator>', '<var>', ')', '{', '<var>', '+', '+', ';', '}']
+statement2 = ['while', '(', '<var>', '<operator>', '<var>', ')', '{', '<var>', '-', '-', ';', '}']
 head = []
 state = []
+statement = []
 
+text = st.text_area("Input String : ", placeholder="Input String")
+text = list(text)
 i = 0
 valid = True
 currState = 'q0'
@@ -63,6 +70,7 @@ if st.button('Analyze'):
                 state.append(currState)
                 currState = 'q5'
                 i += 1
+                statement.append("while")
             else:
                 valid = False
         elif currState == 'q5':
@@ -71,6 +79,7 @@ if st.button('Analyze'):
                 state.append(currState)
                 currState = 'q6'
                 i += 1
+                statement.append('(')
             elif text[i] == ' ':
                 head.append("space")
                 state.append(currState)
@@ -83,11 +92,13 @@ if st.button('Analyze'):
                 state.append(currState)
                 currState = 'q7'
                 i += 1
+                statement.append("<var>")
             elif text[i] == 'y':
                 head.append(text[i])
                 state.append(currState)
                 currState = 'q7'
                 i += 1
+                statement.append("<var>")
             elif text[i] == ' ':
                 head.append("space")
                 state.append(currState)
@@ -100,11 +111,13 @@ if st.button('Analyze'):
                 state.append(currState)
                 currState = 'q8'
                 i += 1
+                statement.append("<operator>")
             elif text[i] == '>':
                 head.append(text[i])
                 state.append(currState)
                 currState = 'q8'
                 i += 1
+                statement.append("<operator>")
             elif text[i] == ' ':
                 head.append("space")
                 state.append(currState)
@@ -117,11 +130,13 @@ if st.button('Analyze'):
                 state.append(currState)
                 currState = 'q9'
                 i += 1
+                statement.append("<var>")
             elif text[i] == 'y':
                 head.append(text[i])
                 state.append(currState)
                 currState = 'q9'
                 i += 1
+                statement.append("<var>")
             elif text[i] == ' ':
                 head.append("space")
                 state.append(currState)
@@ -134,6 +149,7 @@ if st.button('Analyze'):
                 state.append(currState)
                 currState = 'q10'
                 i += 1
+                statement.append(")")
             elif text[i] == ' ':
                 head.append("space")
                 state.append(currState)
@@ -146,6 +162,7 @@ if st.button('Analyze'):
                 state.append(currState)
                 currState = 'q11'
                 i += 1
+                statement.append("{")
             elif text[i] == ' ':
                 head.append("space")
                 state.append(currState)
@@ -158,11 +175,13 @@ if st.button('Analyze'):
                 state.append(currState)
                 currState = 'q12'
                 i += 1
+                statement.append("<var>")
             elif text[i] == 'y':
                 head.append(text[i])
                 state.append(currState)
                 currState = 'q12'
                 i += 1
+                statement.append("<var>")
             elif text[i] == ' ':
                 head.append("space")
                 state.append(currState)
@@ -175,11 +194,13 @@ if st.button('Analyze'):
                 state.append(currState)
                 currState = 'q13'
                 i += 1
+                statement.append("+")
             elif text[i] == '-':
                 head.append(text[i])
                 state.append(currState)
                 currState = 'q13'
                 i += 1
+                statement.append("+")
             elif text[i] == ' ':
                 head.append("space")
                 state.append(currState)
@@ -192,6 +213,7 @@ if st.button('Analyze'):
                 state.append(currState)
                 currState = 'q15'
                 i += 1
+                statement.append("+")
             else:
                 valid = False
         elif currState == 'q14':
@@ -200,6 +222,7 @@ if st.button('Analyze'):
                 state.append(currState)
                 currState = 'q16'
                 i += 1
+                statement.append("-")
             else:
                 valid = False
         elif currState == 'q15':
@@ -208,6 +231,7 @@ if st.button('Analyze'):
                 state.append(currState)
                 currState = 'q17'
                 i += 1
+                statement.append(";")
             else:
                 valid = False
         elif currState == 'q16':
@@ -216,6 +240,7 @@ if st.button('Analyze'):
                 state.append(currState)
                 currState = 'q17'
                 i += 1
+                statement.append(";")
             else:
                 valid = False
         elif currState == 'q17':
@@ -224,6 +249,7 @@ if st.button('Analyze'):
                 state.append(currState)
                 currState = 'q18'
                 i += 1
+                statement.append("}")
             elif text[i] == ' ':
                 head.append("space")
                 state.append(currState)
@@ -238,11 +264,33 @@ if st.button('Analyze'):
             else:
                 valid = False
 
-    if valid:
-        st.write(pd.DataFrame({
-            'State': state,
-            'Parse' : head
-        }))
+    if statement == statement1 or statement == statement2:
+        susunan = True
     else:
-         st.write("Tidak valid")
-        # print(text[i], "\tToken tidak valid")
+        susunan = False
+
+    if valid:
+        if len(statement) < len(statement1):
+            for j in range(len(text)):
+                st.write(text[j], end="")
+            st.write()
+            for j in range(i-1):
+                st.write(" ", end="")
+            st.write("^")
+            if len(statement) == 8 or len(statement) == 9:
+                st.write("Error, Expected + or - after", text[i-1])
+            else:
+                st.write("Error, Expected", statement1[len(statement)], "after", text[i-1])
+
+        else:
+            st.write("State\thead")
+            for i in range(len(text)):
+                st.write(state[i], "\t", head[i])
+    else:
+        for j in range(len(text)):
+            st.write(text[j], end="")
+        st.write()
+        for j in range(i):
+            st.write(" ", end="")
+        st.write("^Token salah")
+
