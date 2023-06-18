@@ -51,7 +51,7 @@ def wumbo(text):
                 i+=1
             else:
                 if notFound(listToken, text[i]):
-                    temp = token(text[i], True)
+                    temp = token(text[i], False)
                     listToken.append(temp)
                 i+=1
         elif currState == 'q1':
@@ -62,7 +62,7 @@ def wumbo(text):
                 i+=1
             else:
                 if notFound(listToken, text[i]):
-                    temp = token(text[i], True)
+                    temp = token(text[i], False)
                     listToken.append(temp)
                 currState = 'q0'
                 i+=1
@@ -74,7 +74,7 @@ def wumbo(text):
                 i+=1
             else:
                 if notFound(listToken, text[i]):
-                    temp = token(text[i], True)
+                    temp = token(text[i], False)
                     listToken.append(temp)
                 currState = 'q0'
                 i+=1
@@ -86,7 +86,7 @@ def wumbo(text):
                 i+=1
             else:
                 if notFound(listToken, text[i]):
-                    temp = token(text[i], True)
+                    temp = token(text[i], False)
                     listToken.append(temp)
                 currState = 'q0'
                 i+=1
@@ -104,7 +104,7 @@ def wumbo(text):
                 i+=1
             else:
                 if notFound(listToken, text[i]):
-                    temp = token(text[i], True)
+                    temp = token(text[i], False)
                     listToken.append(temp)
                 currState = 'q0'
                 i+=1
@@ -131,10 +131,11 @@ text = list(text)
 valid = True
 currState = 'q0'
 
+
 if st.button('Analyze'):
     wumbo(text)
 
-    st.write("Token\tValid")
+    st.write("Token\t Valid")
     for i in range(len(listToken)):
         if listToken[i].valid:
             st.write(listToken[i].head,"\t True")
@@ -142,16 +143,11 @@ if st.button('Analyze'):
             st.write(listToken[i].head,"\t False")
             valid = False
 
-    if statement == statement1 or statement == statement2:
-        susunan = True
-    else:
-        susunan = False
-
     if valid:
         if statement == statement1 or statement == statement2:
             grammar = "Grammar: "
             for i in range(len(statement)):
-               grammar += statement[i] + " "
+                grammar+= statement[i], + " "
             st.write(grammar)
             st.write("\nSusunan token sudah sesuai grammar")
 
@@ -161,17 +157,20 @@ if st.button('Analyze'):
         else:
             susunanToken = "Susunan token: "
             for i in range(len(statement)):
-                susunanToken+= statement[i] + " "
+                susunanToken += statement[i] + " "
             st.write(susunanToken)
             i = 0
             stop = False
-            while i <= len(statement) and stop == False:
+            while i <= len(statement)-1 and stop == False:
                 if len(statement) < 1:
                     st.write("\nError, Expected while at the start of statement")
                 elif statement[0] != "while":
-                    st.write("Error, Expected while at the start of statement")
+                    st.write("\nError, Expected while at the start of statement")
                     stop = True
-                elif len(statement) == 1 and statement[0] == "while":
+                elif (len(statement) == 1 and statement[0] == "while"):
+                    st.write("\nError, Expected ( after while")
+                    stop = True
+                elif (len(statement) > 1 and statement[0] == "while") and (statement[1] != '('):
                     st.write("\nError, Expected ( after while")
                     stop = True
                 elif (i == 8) and len(statement) > 8:
@@ -186,9 +185,14 @@ if st.button('Analyze'):
                     if (statement[i] != statement2[i]) and statement[i-1] == '-':
                         st.write("\nError, Expected - after -")
                         stop = True
-                elif (i != 8 and i != 9) and (len(statement) > 9) and (len(statement) < 8):
-                    st.write(i)
+                elif (i != 8 and i != 9) and ((len(statement) > 9) or (len(statement) < 8)):
                     if (statement[i] != statement1[i]):
                         st.write("\nError, Expected", statement1[i], "after", statement[i-1])
                         stop = True
                 i += 1
+            if len(statement) == 0:
+                st.write("\nError, Expected while at the start of statement")
+            elif stop != True and len(statement) != 0:
+                st.write("\nError, Expected", statement1[i], "after", statement[i-1])
+    else:
+        st.write("Token tidak valid")
