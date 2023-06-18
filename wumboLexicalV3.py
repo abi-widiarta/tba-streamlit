@@ -6,10 +6,10 @@ st.markdown("<h4 style='text-align: center;'>Tugas Besar TBA IF-45-09</h4>", uns
 st.markdown("<h4 style='text-align: center;'>Kelompok 9</h4>", unsafe_allow_html=True)
 st.divider()
 
-st.title('Example Code: ')
+st.write('Example Code: ')
 code = '''while (x<y) {
     x++;
-   }
+}
     '''
 st.code(code, language='cpp')
 
