@@ -1,10 +1,8 @@
 import streamlit as st
-import pandas as pd
-import numpy as np
 
-st.title('Uber pickups in NYC')
+st.title('Lexical Analyzer')
 
-kata = input("wumbo:")
+kata = st.text_area("Input String : ", placeholder="Input String")
 kata = list(kata)
 i = 0
 valid = True
