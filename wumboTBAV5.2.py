@@ -6,8 +6,8 @@ st.markdown("<h4 style='text-align: center;'>Tugas Besar TBA IF-45-09</h4>", uns
 st.markdown("<h4 style='text-align: center;'>Kelompok 9</h4>", unsafe_allow_html=True)
 st.divider()
 
-statusValid = '<p style="color:Green; font-size: 20px;">Kode yang anda input benar!</p>'
-statusInvalid = '<p style="color:Red; font-size: 20px;">Kode yang anda input salah!</p>'
+statusValid = '<p style="color:Green; font-size: 20px; text-align: center;">Kode yang anda input benar!</p>'
+statusInvalid = '<p style="color:Red; font-size: 20px; text-align: center;">Kode yang anda input salah!</p>'
 
 st.markdown("<h5 style='text-align: center;'>Program lexical analyzer/parser untuk sintaks perulangan \"while-do\" dalam bahasa c++</h5>", unsafe_allow_html=True)
 
