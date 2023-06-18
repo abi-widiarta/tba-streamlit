@@ -132,10 +132,10 @@ valid = True
 currState = 'q0'
 
 
+listToken = []
+statusToken = []
 if st.button('Analyze'):
     wumbo(text)
-    listToken = []
-    statusToken = []
     for i in range(len(listToken)):
         if listToken[i].valid:
             listToken.append("True")
@@ -154,7 +154,7 @@ if st.button('Analyze'):
         if statement == statement1 or statement == statement2:
             grammar = "Grammar: "
             for i in range(len(statement)):
-                grammar+= statement[i], + " "
+                grammar+= statement[i] + " "
             st.write(grammar)
             st.write("\nSusunan token sudah sesuai grammar")
 
