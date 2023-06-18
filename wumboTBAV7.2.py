@@ -136,13 +136,20 @@ if st.button('Analyze'):
     wumbo(text)
 
     st.write("Token\t Valid")
+    listToken = []
+    statusToken = []
     for i in range(len(listToken)):
         if listToken[i].valid:
-            st.write(listToken[i].head,"\t True")
+            listToken.append("True")
+            statusToken.append(listToken[i].head)
         else:
-            st.write(listToken[i].head,"\t False")
+            listToken.append("False")
+            statusToken.append(listToken[i].head)
             valid = False
-
+    st.write(pd.DataFrame({
+                'Token': listToken,
+                'Valid' : statusToken
+            }))
     if valid:
         if statement == statement1 or statement == statement2:
             grammar = "Grammar: "
