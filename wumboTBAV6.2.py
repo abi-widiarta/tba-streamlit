@@ -127,22 +127,23 @@ text = list(text)
 valid = True
 currState = 'q0'
 
-wumbo(text)
+if st.button('Analyze'):
+    wumbo(text)
 
-st.write("Token\tValid")
-for i in range(len(listToken)):
-    if listToken[i].valid:
-        st.write(listToken[i].head,"\t True")
+    st.write("Token\tValid")
+    for i in range(len(listToken)):
+        if listToken[i].valid:
+            st.write(listToken[i].head,"\t True")
+        else:
+            st.write(listToken[i].head,"\t False")
+            valid = False
+
+    if statement == statement1 or statement == statement2:
+        susunan = True
     else:
-        st.write(listToken[i].head,"\t False")
-        valid = False
+        susunan = False
 
-if statement == statement1 or statement == statement2:
-    susunan = True
-else:
-    susunan = False
-
-if valid:
+    if valid:
     if statement == statement1 or statement == statement2:
         st.write("\nGrammar: ", end='')
         for i in range(len(statement)):
