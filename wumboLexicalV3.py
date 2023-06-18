@@ -15,6 +15,7 @@ st.code(code, language='cpp')
 
 kata = st.text_area("Input String : ", placeholder="Input String")
 kata = list(kata)
+st.write(kata)
 i = 0
 valid = True
 
