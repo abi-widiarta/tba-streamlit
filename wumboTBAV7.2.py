@@ -47,7 +47,7 @@ def wumbo(text):
                 else:
                     statement.append(text[i])
                 i+=1
-            elif text[i] == ' ':
+            elif text[i] == ' ' or text[i] == '\n':
                 i+=1
             else:
                 if notFound(listToken, text[i]):
@@ -58,7 +58,7 @@ def wumbo(text):
             if text[i] == 'h':
                 currState = 'q2'
                 i+=1
-            elif text[i] == ' ':
+            elif text[i] == ' ' or text[i] == '\n':
                 i+=1
             else:
                 if notFound(listToken, text[i]):
@@ -70,7 +70,7 @@ def wumbo(text):
             if text[i] == 'i':
                 currState = 'q3'
                 i+=1
-            elif text[i] == ' ':
+            elif text[i] == ' ' or text[i] == '\n':
                 i+=1
             else:
                 if notFound(listToken, text[i]):
@@ -82,7 +82,7 @@ def wumbo(text):
             if text[i] == 'l':
                 currState = 'q4'
                 i+=1
-            elif text[i] == ' ':
+            elif text[i] == ' ' or text[i] == '\n':
                 i+=1
             else:
                 if notFound(listToken, text[i]):
@@ -100,7 +100,7 @@ def wumbo(text):
                 statement.append("while")
                 currState = 'q0'
                 i+=1
-            elif text[i] == ' ':
+            elif text[i] == ' ' or text[i] == '\n':
                 i+=1
             else:
                 if notFound(listToken, text[i]):
