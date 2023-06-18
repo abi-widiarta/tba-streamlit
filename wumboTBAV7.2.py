@@ -134,8 +134,6 @@ currState = 'q0'
 
 if st.button('Analyze'):
     wumbo(text)
-
-    st.write("Token\t Valid")
     listToken = []
     statusToken = []
     for i in range(len(listToken)):
@@ -146,6 +144,8 @@ if st.button('Analyze'):
             listToken.append("False")
             statusToken.append(listToken[i].head)
             valid = False
+    st.write(listToken)
+    st.write(statusToken)
     st.write(pd.DataFrame({
                 'Token': listToken,
                 'Valid' : statusToken
