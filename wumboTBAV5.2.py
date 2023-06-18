@@ -16,7 +16,9 @@ code = '''while (x<y) {
     '''
 st.code(code, language='cpp')
 
-text=st.text_area("Input String : ", placeholder="Input code")
+st.write("Program lexical analyzer/parser untuk sintaks perulangan \"while-do\" dalam bahasa c++")
+
+text=st.text_area("Input Code : ", placeholder="Input code")
 
 statement1 = ['while', '(', '<var>', '<operator>', '<var>', ')', '{', '<var>', '+', '+', ';', '}']
 statement2 = ['while', '(', '<var>', '<operator>', '<var>', ')', '{', '<var>', '-', '-', ';', '}']
