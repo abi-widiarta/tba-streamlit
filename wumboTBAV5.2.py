@@ -284,10 +284,9 @@ if st.button('Analyze'):
                 'Parse' : head
             }))
     else:
-        for j in range(len(text)):
-            st.write(text[j], end="")
-        st.write()
-        for j in range(i):
-            st.write(" ", end="")
+        st.write(pd.DataFrame({
+                'State': state,
+                'Parse' : head
+        }))
         st.write("^Token salah")
 
