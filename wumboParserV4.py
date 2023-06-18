@@ -1,7 +1,19 @@
-baris = 3
-text = ""
-for i in range(baris):
-    text+=input()
+import streamlit as st
+import pandas as pd
+
+st.markdown("<h1 style='text-align: center;'>Lexical Analyzer</h1>", unsafe_allow_html=True)
+st.markdown("<h4 style='text-align: center;'>Tugas Besar TBA IF-45-09</h4>", unsafe_allow_html=True)
+st.markdown("<h4 style='text-align: center;'>Kelompok 9</h4>", unsafe_allow_html=True)
+st.divider()
+
+st.write('Example Code: ')
+code = '''while (x<y) {
+    x++;
+}
+    '''
+st.code(code, language='cpp')
+
+text = st.text_area("Input String : ", placeholder="Input String")
 
 head = []
 state = []
@@ -225,8 +237,9 @@ while i < len(text) and valid == True:
             valid = False
 
 if valid:
-    for i in range(len(head)):
-        print(state[i])
-        print(head[i])
+    st.write(pd.DataFrame({
+        'State': state,
+        'Parse' : head
+    }))
 else:
     print(text[i], "\tToken tidak valid")
