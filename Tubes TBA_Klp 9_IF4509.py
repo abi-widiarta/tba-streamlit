@@ -1,3 +1,7 @@
+# Cara Menjalankan Program :
+# Program dapat digunakan dengan mengakses alamat tautan 
+
+
 import streamlit as st
 import pandas as pd
 
@@ -109,11 +113,6 @@ def wumbo(text):
                 currState = 'q0'
                 i+=1
 
-# baris = 3
-# text = ""
-# for i in range(baris):
-#     text+=input()
-
 statement = []
 statement1 = ['while', '(', '<var>', '<operator>', '<var>', ')', '{', '<var>', '+', '+', ';', '}']
 statement2 = ['while', '(', '<var>', '<operator>', '<var>', ')', '{', '<var>', '-', '-', ';', '}']
@@ -131,10 +130,9 @@ text = list(text)
 valid = True
 currState = 'q0'
 
-
 namaToken = []
 statusToken = []
-if st.button('Analyze'):
+if st.button('RUN'):
     wumbo(text)
     for i in range(len(listToken)):
         if listToken[i].valid:
