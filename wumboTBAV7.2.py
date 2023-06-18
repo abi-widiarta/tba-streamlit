@@ -132,23 +132,23 @@ valid = True
 currState = 'q0'
 
 
-listToken = []
+namaToken = []
 statusToken = []
 if st.button('Analyze'):
     wumbo(text)
     for i in range(len(listToken)):
         if listToken[i].valid:
-            listToken.append("True")
+            namaToken.append("True")
             statusToken.append(listToken[i].head)
         else:
-            listToken.append("False")
+            namaToken.append("False")
             statusToken.append(listToken[i].head)
             valid = False
-    st.write(listToken)
+    st.write(namaToken)
     st.write(statusToken)
     st.write(pd.DataFrame({
                 'Token': listToken,
-                'Valid' : statusToken
+                'Valid' : namaToken
             }))
     if valid:
         if statement == statement1 or statement == statement2:
