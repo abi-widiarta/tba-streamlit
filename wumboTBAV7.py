@@ -158,10 +158,9 @@ if st.button('Analyze'):
             for i in range(len(head)):
                 st.write(head[i])
         else:
-            susunanToken = ""
-            st.write("Susunan token: ")
+            susunanToken = "Susunan token: "
             for i in range(len(statement)):
-                susunanToken+= statement[i]
+                susunanToken+= statement[i] + " "
             st.write(susunanToken)
             i = 0
             stop = False
