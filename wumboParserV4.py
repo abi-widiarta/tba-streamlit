@@ -244,4 +244,5 @@ if st.button('Analyze'):
             'Parse' : head
         }))
     else:
-        print(text[i], "\tToken tidak valid")
+         st.write("Tidak valid")
+        # print(text[i], "\tToken tidak valid")
