@@ -155,7 +155,6 @@ if st.button('Analyze'):
                 valid = False
         st.write(currState)
     #st.write(kata[i])
-
-
-if currState == 'q10': valid = True
-st.write(valid)
+    
+    if currState == 'q10': valid = True
+    st.write(valid)
