@@ -193,6 +193,6 @@ if st.button('Analyze'):
     
     st.write("Here's our first attempt at using data to create a table:")
     st.write(pd.DataFrame({
-        'State': [1, 2, 3, 4],
+        'State': allState,
         'Parse': [10, 20, 30, 40]
     }))
