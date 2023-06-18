@@ -22,6 +22,8 @@ state = []
 statement = []
 
 text = list(text)
+st.write(text)
+
 i = 0
 valid = True
 currState = 'q0'
