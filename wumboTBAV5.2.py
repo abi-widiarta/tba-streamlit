@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 
-st.markdown("<h1 style='text-align: center;'>Lexical Analyzer</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center;'>Lexical Analyzer/Parser</h1>", unsafe_allow_html=True)
 st.markdown("<h4 style='text-align: center;'>Tugas Besar TBA IF-45-09</h4>", unsafe_allow_html=True)
 st.markdown("<h4 style='text-align: center;'>Kelompok 9</h4>", unsafe_allow_html=True)
 st.divider()
@@ -22,7 +22,7 @@ state = []
 statement = []
 
 text = list(text)
-st.write(text)
+# st.write(text)
 
 i = 0
 valid = True
@@ -315,18 +315,22 @@ if st.button('Analyze'):
             st.write("^")
             if len(statement) == 8 or len(statement) == 9:
                 st.write("Error, Expected + or - after", text[i-1])
+                st.title("Kode yang anda inputkan salah!")
             else:
                 st.write("Error, Expected", statement1[len(statement)], "after", text[i-1])
+                st.title("Kode yang anda inputkan salah!")
 
         else:
             st.write(pd.DataFrame({
                 'State': state,
                 'Parse' : head
             }))
+            st.title("Kode yang anda inputkan benar!")
     else:
         st.write(pd.DataFrame({
                 'State': state,
                 'Parse' : head
         }))
         st.write("^Token salah")
+        st.title("Kode yang anda inputkan salah!")
 
