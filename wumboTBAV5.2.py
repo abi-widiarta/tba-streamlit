@@ -322,7 +322,10 @@ if st.button('Analyze'):
                 st.write("Error, Expected + or - after", text[i-1])
                 st.markdown(statusInvalid, unsafe_allow_html=True)
             else:
-                st.write("Error, Expected", statement1[len(statement)], "after", text[i-1])
+                if text[i-1] == ' ':
+                    st.write("Error, Expected", statement1[len(statement)], "after", "space")
+                else:
+                    st.write("Error, Expected", statement1[len(statement)], "after", text[i-1])
                 st.markdown(statusInvalid, unsafe_allow_html=True)
 
         else:
