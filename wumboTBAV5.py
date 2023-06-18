@@ -283,9 +283,10 @@ if st.button('Analyze'):
                 st.write("Error, Expected", statement1[len(statement)], "after", text[i-1])
 
         else:
-            st.write("State\thead")
-            for i in range(len(text)):
-                st.write(state[i], "\t", head[i])
+            st.write(pd.DataFrame({
+            'State': state,
+            'Parse' : head
+        }))
     else:
         for j in range(len(text)):
             st.write(text[j], end="")
