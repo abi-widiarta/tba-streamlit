@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 
 st.markdown("<h1 style='text-align: center;'>Lexical Analyzer</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center; font-size: 22px'>Tugas Besar TBA IF-45-09</h1>", unsafe_allow_html=True)
 st.markdown("<h1 style='text-align: center; font-size: 18px'>Tugas Besar TBA IF-45-09</h1>", unsafe_allow_html=True)
 
 kata = st.text_area("Input String : ", placeholder="Input String")
