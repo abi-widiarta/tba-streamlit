@@ -4,6 +4,7 @@ import pandas as pd
 st.markdown("<h1 style='text-align: center;'>Lexical Analyzer</h1>", unsafe_allow_html=True)
 st.markdown("<h4 style='text-align: center;'>Tugas Besar TBA IF-45-09</h4>", unsafe_allow_html=True)
 st.markdown("<h4 style='text-align: center;'>Kelompok 9</h4>", unsafe_allow_html=True)
+st.divider()
 
 kata = st.text_area("Input String : ", placeholder="Input String")
 kata = list(kata)
